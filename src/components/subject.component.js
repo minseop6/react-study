@@ -1,17 +1,21 @@
 import { React, Component } from 'react';
 
 class Subject extends Component {
-  subject = () => {
-    let subject = 'Subject';
-    let number = 3;
-    return subject + number;
+  state = {
+      count: 0,
+  }
+  
+  add = () => {
+    this.setState({
+      count: this.state.count + 1,
+    })
   }
 
   render() {
-    this.subject()
     return (
       <div className="Subject">
-        <h1>{this.subject()}</h1>
+        <h1>{`React ${this.state.count}`}</h1>
+        <button onClick={this.add}>ADD</button>
       </div>
     );
   }
