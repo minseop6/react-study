@@ -1,24 +1,24 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Subject extends Component {
-  state = {
-    count: 0,
-  };
-
-  add = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   render() {
+    const { title } = this.props;
     return (
       <div className="Subject">
-        <h1>{`React ${this.state.count}`}</h1>
-        <button onClick={this.add}>ADD</button>
+        <h1>{title}</h1>
       </div>
     );
   }
 }
+
+Subject.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Subject;

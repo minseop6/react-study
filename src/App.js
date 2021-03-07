@@ -5,13 +5,18 @@ import Article from './components/article.component';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Hello, React!</h1>
-        <Subject />
+        <Subject title="React" />
         <Navigation />
-        <Article />
+        <Article title="HTML" contents="HTML is HyperText Markup Language." />
       </div>
     );
   }
