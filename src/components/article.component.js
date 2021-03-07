@@ -7,7 +7,7 @@ class Article extends Component {
         <h2>HTML</h2>
         HTML is HyperText Markup Language.
       </div>
-    )
+    );
   }
 }
 

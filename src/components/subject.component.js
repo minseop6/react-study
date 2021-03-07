@@ -2,14 +2,14 @@ import { React, Component } from 'react';
 
 class Subject extends Component {
   state = {
-      count: 0,
-  }
-  
+    count: 0,
+  };
+
   add = () => {
     this.setState({
       count: this.state.count + 1,
-    })
-  }
+    });
+  };
 
   render() {
     return (
