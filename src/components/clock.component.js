@@ -5,7 +5,6 @@ class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
       date: props.date,
     };
   }
@@ -14,10 +13,7 @@ class Clock extends Component {
     console.log('component did mount');
     this.timerID = setInterval(() => {
       this.tick();
-      this.setState(state => ({
-        counter: state.counter + 1,
-      }));
-    }, 1000);
+    });
   }
 
   componentWillUnmount() {
@@ -32,11 +28,10 @@ class Clock extends Component {
   }
 
   render() {
-    const { date, counter } = this.state;
+    const { date } = this.state;
     return (
       <div className="Clock">
         <h2>{date.toLocaleTimeString()}</h2>
-        {counter}
       </div>
     );
   }
