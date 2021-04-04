@@ -2,7 +2,8 @@ import { React, Component } from 'react';
 import Subject from './components/subject.component';
 import Navigation from './components/navigation.component';
 import Article from './components/article.component';
-import Toggle from './components/toggle.component';
+import Header from './components/header.component';
+// import Toggle from './components/toggle.component';
 import './App.css';
 
 class App extends Component {
@@ -14,11 +15,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello, World!</h1>
+        <Header />
         <Subject title="WEB" />
         <Navigation />
         <Article title="HTML" contents="HTML is HyperText Markup Language." />
-        <Toggle />
       </div>
     );
   }
