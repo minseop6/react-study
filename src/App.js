@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Subject title="WEB" />
-        <Navigation />
+        <Navigation subjectList={['HTML', 'CSS', 'Javascript']} />
         <Article title="HTML" contents="HTML is HyperText Markup Language." />
       </div>
     );

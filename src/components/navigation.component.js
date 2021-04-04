@@ -1,56 +1,47 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Navigation extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      subject: 'HTML',
+      selectedSubject: 'HTML',
     };
   }
 
-  chagneSubject(subject) {
+  chagneSubject(selectedSubject) {
     this.setState({
-      subject,
+      selectedSubject,
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  preventAnchorFunction(e) {
-    e.preventDefault();
-    console.log('The link was clicked.');
+  constructNavigationList() {
+    const { subjectList } = this.props;
+
+    return subjectList.map(item => {
+      return (
+        <li key={item}>
+          <button type="button" onClick={() => this.chagneSubject(item)}>
+            {item}
+          </button>
+        </li>
+      );
+    });
   }
 
   render() {
-    const { subject } = this.state;
+    const { selectedSubject } = this.state;
     return (
       <div className="Navigation">
-        {subject}
-        <a href="test" onClick={this.preventAnchorFunction}>
-          TEST
-        </a>
-        <ul>
-          <li>
-            <button type="button" onClick={() => this.chagneSubject('HTML')}>
-              HTML
-            </button>
-          </li>
-          <li>
-            <button type="button" onClick={() => this.chagneSubject('CSS')}>
-              CSS
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              onClick={() => this.chagneSubject('Javascript')}
-            >
-              Javascript
-            </button>
-          </li>
-        </ul>
+        {selectedSubject}
+        <ul>{this.constructNavigationList()}</ul>
       </div>
     );
   }
 }
+
+Navigation.propTypes = {
+  subjectList: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Navigation;
