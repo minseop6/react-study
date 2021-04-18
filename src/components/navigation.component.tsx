@@ -1,15 +1,22 @@
-import { React, Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-class Navigation extends Component {
-  constructor(props) {
+interface INavigationProps {
+  subjectList: string[];
+}
+
+interface INavigationState {
+  selectedSubject: string;
+}
+
+class Navigation extends React.Component<INavigationProps, INavigationState> {
+  constructor(props: INavigationProps) {
     super(props);
     this.state = {
       selectedSubject: 'HTML',
     };
   }
 
-  chagneSubject(selectedSubject) {
+  chagneSubject(selectedSubject: string) {
     this.setState({
       selectedSubject,
     });
@@ -39,9 +46,5 @@ class Navigation extends Component {
     );
   }
 }
-
-Navigation.propTypes = {
-  subjectList: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default Navigation;

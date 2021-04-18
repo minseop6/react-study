@@ -1,7 +1,12 @@
-import { React, Component } from 'react';
+import * as React from 'react';
 
-class Header extends Component {
-  constructor(props) {
+interface IHeaderProps {}
+interface IHeaderState {
+  isLogin: boolean;
+}
+
+class Header extends React.Component<IHeaderProps, IHeaderState> {
+  constructor(props: IHeaderProps) {
     super(props);
     this.state = {
       isLogin: false,
@@ -10,7 +15,7 @@ class Header extends Component {
   }
 
   userGreeting() {
-    const { isLogin } = this.state;
+    const isLogin = this.state.isLogin;
 
     if (isLogin) {
       return (
@@ -29,7 +34,7 @@ class Header extends Component {
     );
   }
 
-  loginButton(isLogin) {
+  loginButton(isLogin: boolean) {
     return (
       <button type="button" onClick={this.changeToggleStatus}>
         {isLogin ? 'Logout' : 'Login'}

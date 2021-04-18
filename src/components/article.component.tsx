@@ -1,8 +1,12 @@
-import { React, Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-class Article extends Component {
-  constructor(props) {
+interface IArticleProps {
+  title: string;
+  contents: string;
+}
+
+class Article extends React.Component<IArticleProps> {
+  constructor(props: IArticleProps) {
     super(props);
     this.state = {};
   }
@@ -17,10 +21,5 @@ class Article extends Component {
     );
   }
 }
-
-Article.propTypes = {
-  title: PropTypes.string.isRequired,
-  contents: PropTypes.string.isRequired,
-};
 
 export default Article;
