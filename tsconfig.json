@@ -11,11 +11,7 @@
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "keyofStringsOnly": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
@@ -25,10 +21,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "typeRoots": [
-    "node_modules/@types",
-    "src/@type"
-  ],
+  "typeRoots": ["node_modules/@types", "src/@type"],
   "exclude": [
     "node_modules",
     "build",
@@ -39,8 +32,5 @@
     "src/setupTests.ts",
     "./node_modules/**/*"
   ],
-  "include": [
-    "./src/**/*",
-    "@type"
-  ]
+  "include": ["./src/**/*", "@type"]
 }
