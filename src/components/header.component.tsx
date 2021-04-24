@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-interface IHeaderProps {}
+interface IHeaderProps {
+  header?: boolean;
+}
 interface IHeaderState {
   isLogin: boolean;
 }
@@ -14,8 +16,8 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     this.changeToggleStatus = this.changeToggleStatus.bind(this); // or use arraow function to button onclick method
   }
 
-  userGreeting() {
-    const isLogin = this.state.isLogin;
+  private userGreeting() {
+    const { isLogin } = this.state;
 
     if (isLogin) {
       return (
@@ -34,7 +36,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     );
   }
 
-  loginButton(isLogin: boolean) {
+  private loginButton(isLogin: boolean) {
     return (
       <button type="button" onClick={this.changeToggleStatus}>
         {isLogin ? 'Logout' : 'Login'}
@@ -42,8 +44,8 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     );
   }
 
-  changeToggleStatus() {
-    this.setState(state => ({
+  private changeToggleStatus() {
+    this.setState((state) => ({
       isLogin: !state.isLogin,
     }));
   }
