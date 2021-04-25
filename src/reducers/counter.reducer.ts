@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 import { createAction } from 'redux-actions';
 
 const INCREASE = 'counter/INCREASE';
@@ -15,7 +14,7 @@ const initialState: ICounterState = {
   count: 0,
 };
 
-export const reducer = (state = initialState, action): ICounterState => {
+export const counterReducer = (state = initialState, action): ICounterState => {
   switch (action.type) {
     case INCREASE:
       return {
@@ -29,14 +28,3 @@ export const reducer = (state = initialState, action): ICounterState => {
       return state;
   }
 };
-
-const store = createStore(reducer);
-
-console.log('counter store: ', store.getState());
-
-const listener = () => {
-  const state = store.getState();
-  console.log(state);
-};
-
-const unsubscribe = store.subscribe(listener);
