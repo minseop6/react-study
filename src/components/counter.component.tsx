@@ -1,12 +1,15 @@
 import * as React from 'react';
 
-export const Counter = () => {
-  const count = 0;
+export const Counter = ({ count, onIncrease, onDeacrease }) => {
   return (
     <div className="Counter">
-      <button type="button">+</button>
+      <button type="button" onClick={onIncrease}>
+        +
+      </button>
       <span>&nbsp;{count}&nbsp;</span>
-      <button type="button">-</button>
+      <button type="button" onClick={onDeacrease}>
+        -
+      </button>
     </div>
   );
 };
