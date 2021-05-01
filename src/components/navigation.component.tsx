@@ -4,11 +4,16 @@ export const Navigation = ({ subjectList }) => {
   const [selectedSubject, setSelectedSubject] = useState('HTML');
   useEffect(() => {
     console.log(selectedSubject);
+
+    return () => {
+      console.log('unmount');
+    };
   });
 
-  const chagneSubject = (selectedSubject: string) => {
-    setSelectedSubject(selectedSubject);
-  };
+  const [toggle, setToggle] = useState(false);
+  // useEffect(() => {
+  //   console.log(toggle);
+  // });
 
   const constructNavigationList = (list: string[]) => {
     const subjectList = list;
@@ -16,7 +21,7 @@ export const Navigation = ({ subjectList }) => {
     return subjectList.map((item) => {
       return (
         <li key={item}>
-          <button type="button" onClick={() => chagneSubject(item)}>
+          <button type="button" onClick={() => setSelectedSubject(item)}>
             {item}
           </button>
         </li>
@@ -28,6 +33,9 @@ export const Navigation = ({ subjectList }) => {
     <div className="Navigation">
       {selectedSubject}
       <ul>{constructNavigationList(subjectList)}</ul>
+      <button type="button" onClick={() => setToggle(!toggle)}>
+        {toggle.toString()}
+      </button>
     </div>
   );
 };

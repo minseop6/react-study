@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 
 export const Counter = ({ count, onIncrease, onDeacrease }) => {
   useEffect(() => {
-    console.log(count);
+    console.log('mount');
+    return () => {
+      console.log('unmount');
+    };
   });
 
   return (
