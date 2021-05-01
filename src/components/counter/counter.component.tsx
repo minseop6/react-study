@@ -1,6 +1,10 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 export const Counter = ({ count, onIncrease, onDeacrease }) => {
+  useEffect(() => {
+    console.log(count);
+  });
+
   return (
     <div className="Counter">
       <button type="button" onClick={onIncrease}>

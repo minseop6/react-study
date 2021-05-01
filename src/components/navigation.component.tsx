@@ -1,50 +1,33 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
-interface INavigationProps {
-  subjectList: string[];
-}
+export const Navigation = ({ subjectList }) => {
+  const [selectedSubject, setSelectedSubject] = useState('HTML');
+  useEffect(() => {
+    console.log(selectedSubject);
+  });
 
-interface INavigationState {
-  selectedSubject: string;
-}
+  const chagneSubject = (selectedSubject: string) => {
+    setSelectedSubject(selectedSubject);
+  };
 
-class Navigation extends React.Component<INavigationProps, INavigationState> {
-  constructor(props: INavigationProps) {
-    super(props);
-    this.state = {
-      selectedSubject: 'HTML',
-    };
-  }
+  const constructNavigationList = (list: string[]) => {
+    const subjectList = list;
 
-  chagneSubject(selectedSubject: string) {
-    this.setState({
-      selectedSubject,
-    });
-  }
-
-  constructNavigationList() {
-    const { subjectList } = this.props;
-
-    return subjectList.map(item => {
+    return subjectList.map((item) => {
       return (
         <li key={item}>
-          <button type="button" onClick={() => this.chagneSubject(item)}>
+          <button type="button" onClick={() => chagneSubject(item)}>
             {item}
           </button>
         </li>
       );
     });
-  }
+  };
 
-  render() {
-    const { selectedSubject } = this.state;
-    return (
-      <div className="Navigation">
-        {selectedSubject}
-        <ul>{this.constructNavigationList()}</ul>
-      </div>
-    );
-  }
-}
-
-export default Navigation;
+  return (
+    <div className="Navigation">
+      {selectedSubject}
+      <ul>{constructNavigationList(subjectList)}</ul>
+    </div>
+  );
+};

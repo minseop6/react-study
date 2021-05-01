@@ -1,6 +1,6 @@
 import React from 'react';
 import { Subject } from './components/subject.component';
-import Navigation from './components/navigation.component';
+import { Navigation } from './components/navigation.component';
 import Article from './components/article.component';
 import Header from './components/header.component';
 import CounterContainer from './components/counter/counter.container';

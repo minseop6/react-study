@@ -6,6 +6,7 @@ interface ISubjectProps {
 
 export const Subject = (props: ISubjectProps) => {
   const { title } = props;
+
   return (
     <div className="Subject">
       <h1>{title}</h1>
