@@ -3,10 +3,10 @@ import { Subject } from './components/subject.component';
 import { Navigation } from './components/navigation.component';
 import Article from './components/article.component';
 import { Header } from './components/header.component';
-import CounterContainer from './components/counter/counter.container';
+import { CounterContainer } from './components/counter/counter.container';
 import './App.css';
 
-export const App = () => {
+export const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
       <Header />

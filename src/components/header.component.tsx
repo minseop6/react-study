@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   const [loginStatus, setLoginStatus] = useState(false);
 
   const userGreeting = () => {

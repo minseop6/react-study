@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const Navigation = ({ subjectList }) => {
+export const Navigation: React.FC<{ subjectList: string[] }> = ({ subjectList }) => {
   const [selectedSubject, setSelectedSubject] = useState('HTML');
   useEffect(() => {
     console.log(selectedSubject);

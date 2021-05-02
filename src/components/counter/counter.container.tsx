@@ -4,7 +4,7 @@ import { Counter } from './counter.component';
 import { RootState } from '../../reducers';
 import { increase, decrease } from './state/counter.reducer';
 
-const CounterContainer = () => {
+export const CounterContainer = (): JSX.Element => {
   const { count } = useSelector((state: RootState) => ({
     count: state.counterReducer.count,
   }));
@@ -15,5 +15,3 @@ const CounterContainer = () => {
 
   return <Counter count={count} onIncrease={onIncrease} onDeacrease={onDecrease} />;
 };
-
-export default CounterContainer;

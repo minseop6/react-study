@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 
-export const Counter = ({ count, onIncrease, onDeacrease }) => {
+interface ICounterProps {
+  count: number;
+  onIncrease: any;
+  onDeacrease: any;
+}
+
+export const Counter: React.FC<ICounterProps> = ({ count, onIncrease, onDeacrease }) => {
   useEffect(() => {
     console.log('mount');
     return () => {

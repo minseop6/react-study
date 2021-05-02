@@ -19,6 +19,7 @@ module.exports = {
     'prettier/prettier': 0,
     'import/extensions': 0,
     'no-use-before-define': 0,
+    'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
     'no-shadow': 0,

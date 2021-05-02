@@ -4,7 +4,7 @@ interface ISubjectProps {
   title: string;
 }
 
-export const Subject = (props: ISubjectProps) => {
+export const Subject: React.FC<ISubjectProps> = (props) => {
   const { title } = props;
 
   return (
