@@ -1,58 +1,28 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
-interface IHeaderProps {
-  header?: boolean;
-}
-interface IHeaderState {
-  isLogin: boolean;
-}
+export const Header = () => {
+  const [loginStatus, setLoginStatus] = useState(false);
 
-class Header extends React.Component<IHeaderProps, IHeaderState> {
-  constructor(props: IHeaderProps) {
-    super(props);
-    this.state = {
-      isLogin: false,
-    };
-    this.changeToggleStatus = this.changeToggleStatus.bind(this); // or use arraow function to button onclick method
-  }
-
-  private userGreeting() {
-    const { isLogin } = this.state;
-
-    if (isLogin) {
-      return (
-        <div className="Header">
-          <h1>Welcome back!</h1>
-          {this.loginButton(isLogin)}
-        </div>
-      );
-    }
-
+  const userGreeting = () => {
     return (
       <div className="Header">
-        <h1>Please sign up!</h1>
-        {this.loginButton(isLogin)}
+        <h1>{loginStatus ? 'Welcome back!' : 'Please sign up!'}</h1>
+        {loginButton(loginStatus)}
       </div>
     );
-  }
+  };
 
-  private loginButton(isLogin: boolean) {
+  const loginButton = (loginStatus: boolean) => {
     return (
-      <button type="button" onClick={this.changeToggleStatus}>
-        {isLogin ? 'Logout' : 'Login'}
+      <button type="button" onClick={changeToggleStatus}>
+        {loginStatus ? 'Logout' : 'Login'}
       </button>
     );
-  }
+  };
 
-  private changeToggleStatus() {
-    this.setState((state) => ({
-      isLogin: !state.isLogin,
-    }));
-  }
+  const changeToggleStatus = () => {
+    setLoginStatus(!loginStatus);
+  };
 
-  render() {
-    return this.userGreeting();
-  }
-}
-
-export default Header;
+  return userGreeting();
+};
