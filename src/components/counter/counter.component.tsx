@@ -8,9 +8,10 @@ interface ICounterProps {
 
 export const Counter: React.FC<ICounterProps> = ({ count, onIncrease, onDeacrease }) => {
   useEffect(() => {
-    console.log('mount');
+    console.log('rerendering', count);
+
     return () => {
-      console.log('unmount');
+      console.log('cleanup');
     };
   });
 

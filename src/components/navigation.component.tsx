@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const Navigation: React.FC<{ subjectList: string[] }> = ({ subjectList }) => {
   const [selectedSubject, setSelectedSubject] = useState('HTML');
-  useEffect(() => {
-    console.log(selectedSubject);
-
-    return () => {
-      console.log('unmount');
-    };
-  });
 
   const constructNavigationList = (list: string[]) => {
     const subjectList = list;
