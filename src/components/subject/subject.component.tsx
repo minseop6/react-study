@@ -9,7 +9,7 @@ export const Subject: React.FC<ISubjectProps> = (props) => {
 
   return (
     <div className="Subject">
-      <h1>{title}</h1>
+      <h1>{title || 'Subject'}</h1>
     </div>
   );
 };

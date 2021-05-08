@@ -1,5 +1,5 @@
 import React from 'react';
-import { Subject } from './components/subject.component';
+import { Subject } from './components/subject/subject.component';
 import { Navigation } from './components/navigation.component';
 import Article from './components/article.component';
 import { Header } from './components/header.component';
