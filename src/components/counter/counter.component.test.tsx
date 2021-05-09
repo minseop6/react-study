@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from '../../reducers';
 import { CounterContainer } from './counter.container';
-import { increase, decrease } from './state/counter.reducer';
+import { increase, decrease, counterReducer } from './state/counter.reducer';
 
 let container: Element | null = null;
 const store = createStore(rootReducer, composeWithDevTools());
@@ -44,6 +44,24 @@ describe('counter', () => {
       const actions = [increase(), decrease()];
 
       expect(actions).toEqual(expectedActions);
+    });
+  });
+
+  describe('reducer', () => {
+    let count = counterReducer(undefined);
+
+    it('should return the initial value', () => {
+      expect(count).toHaveProperty('count', 0);
+    });
+
+    it('should return the increase value', () => {
+      count = counterReducer({ count: 0 }, { type: 'counter/INCREASE' });
+      expect(count).toHaveProperty('count', 1);
+    });
+
+    it('should return the decrease value', () => {
+      count = counterReducer({ count: 0 }, { type: 'counter/DECREASE' });
+      expect(count).toHaveProperty('count', -1);
     });
   });
 });

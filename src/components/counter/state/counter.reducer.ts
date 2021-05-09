@@ -17,7 +17,9 @@ const initialState: ICounterState = {
   count: 0,
 };
 
-export const counterReducer = (state = initialState, action: ActionType): ICounterState => {
+export const counterReducer = (state = initialState, action?: ActionType): ICounterState => {
+  if (!action) return state;
+
   switch (action.type) {
     case INCREASE:
       return {
