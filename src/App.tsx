@@ -1,4 +1,5 @@
 import React from 'react';
+import CSS from 'csstype';
 // import { Subject } from './components/subject/subject.component';
 // import { Navigation } from './components/navigation.component';
 // import Article from './components/article.component';
@@ -19,11 +20,17 @@ import React from 'react';
 // };
 
 import { Clock } from './components/clock.component';
+import { Input } from './components/input.component';
 
 export const App: React.FC = (): JSX.Element => {
+  const globalStyle: CSS.Properties = {
+    textAlign: 'center',
+  };
+
   return (
-    <div className="App">
+    <div className="App" style={globalStyle}>
       <Clock />
+      <Input />
     </div>
   );
 };

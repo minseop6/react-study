@@ -13,16 +13,11 @@ export const Clock: React.FC = () => {
     console.log('timeInterval');
     setInterval(() => {
       setTime(DateTime.now().toFormat('tt'));
-      console.log(time);
     }, 1000);
   };
 
-  const colckStyle: CSS.Properties = {
-    textAlign: 'center',
-  };
-
   return (
-    <div className="Clock" style={colckStyle}>
+    <div className="Clock">
       <h1>{time}</h1>
     </div>
   );
