@@ -17,7 +17,7 @@ afterEach(() => {
   container = null;
 });
 
-it('renders count component', () => {
+it('renders subject component', () => {
   act(() => {
     render(<Subject title="test" />, container);
   });

@@ -20,7 +20,7 @@ export const Counter: React.FC<ICounterProps> = ({ count, onIncrease, onDeacreas
       <button type="button" onClick={onIncrease}>
         +
       </button>
-      <span>&nbsp;{count}&nbsp;</span>
+      <span>{count}</span>
       <button type="button" onClick={onDeacrease}>
         -
       </button>
