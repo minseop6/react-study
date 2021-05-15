@@ -21,6 +21,7 @@ import CSS from 'csstype';
 
 import { Clock } from './components/clock.component';
 import { Input } from './components/input.component';
+import { List } from './components/list.component';
 
 export const App: React.FC = (): JSX.Element => {
   const globalStyle: CSS.Properties = {
@@ -31,6 +32,7 @@ export const App: React.FC = (): JSX.Element => {
     <div className="App" style={globalStyle}>
       <Clock />
       <Input />
+      <List />
     </div>
   );
 };
