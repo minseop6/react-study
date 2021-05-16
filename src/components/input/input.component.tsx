@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './input.component.scss';
+import { RootState } from '../../reducers';
+import { addItem } from '../../reducers/todo.reducer';
 
 export interface ITodo {
   id: number;
@@ -14,16 +17,20 @@ export const Input: React.FC = () => {
     setText(value);
   };
 
+  const { todoList } = useSelector((state: RootState) => ({
+    todoList: state.todoReducer.todoList,
+  }));
+
+  const dispatch = useDispatch();
+  const addTodo = (item: ITodo) => dispatch(addItem(item));
+
   const saveTodoItem = (keyCode: number) => {
     if (keyCode === 13) {
-      const storedList = localStorage.getItem('todoList');
-      const todoList: ITodo[] = storedList ? JSON.parse(storedList) : [];
-      todoList.push({
+      addTodo({
         id: todoList.length + 1,
         checked: false,
         text,
       });
-      localStorage.setItem('todoList', JSON.stringify(todoList));
       setText('');
     }
   };
