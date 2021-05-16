@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './input.component.scss';
 
+export interface ITodo {
+  id: number;
+  checked: boolean;
+  text: string;
+}
+
 export const Input: React.FC = () => {
   const [text, setText] = useState('');
 
@@ -11,8 +17,12 @@ export const Input: React.FC = () => {
   const saveTodoItem = (keyCode: number) => {
     if (keyCode === 13) {
       const storedList = localStorage.getItem('todoList');
-      const todoList: string[] = storedList ? JSON.parse(storedList) : [];
-      todoList.push(text);
+      const todoList: ITodo[] = storedList ? JSON.parse(storedList) : [];
+      todoList.push({
+        id: todoList.length + 1,
+        checked: false,
+        text,
+      });
       localStorage.setItem('todoList', JSON.stringify(todoList));
       setText('');
     }
