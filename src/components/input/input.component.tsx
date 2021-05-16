@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import CSS from 'csstype';
+import './input.component.scss';
 
 export const Input: React.FC = () => {
   const [text, setText] = useState('');
-
-  const inputStyle: CSS.Properties = {
-    margin: '20px 0 0 0',
-    width: '400px',
-    height: '30px',
-  };
 
   const textChanged = (value: string) => {
     setText(value);
@@ -28,7 +22,7 @@ export const Input: React.FC = () => {
     <div className="Input">
       <input
         type="text"
-        style={inputStyle}
+        className="input"
         value={text}
         onKeyDown={(e) => saveTodoItem(e.keyCode)}
         onChange={(e) => textChanged(e.target.value)}
