@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { ITodo } from '../components/input/input.component';
+import { ITodo } from '../components/todo-list/todo-list.interface';
 
 const ADD = 'todo/ADD';
 const UPDATE = 'todo/UPDATE';
