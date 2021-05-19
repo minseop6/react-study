@@ -2,8 +2,7 @@ import React from 'react';
 import CSS from 'csstype';
 
 import { Clock } from './components/clock.component';
-import { Input } from './components/input/input.component';
-import { List } from './components/list/list.component';
+import { TodoList } from './components/todo-list/todo-list.component';
 
 export const App: React.FC = (): JSX.Element => {
   const globalStyle: CSS.Properties = {
@@ -13,8 +12,7 @@ export const App: React.FC = (): JSX.Element => {
   return (
     <div className="App" style={globalStyle}>
       <Clock />
-      <Input />
-      <List />
+      <TodoList />
     </div>
   );
 };
