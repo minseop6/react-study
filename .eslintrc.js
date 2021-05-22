@@ -23,11 +23,13 @@ module.exports = {
     'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/order': 0,
     'no-shadow': 0,
     'react/prop-types': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-var-requires': 0,
   },
 };

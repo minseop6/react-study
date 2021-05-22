@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './input.component.scss';
 import { RootState } from '../../reducers';
-import { addItem } from '../../reducers/todo.reducer';
+import { addItem } from '@/reducers/todo.reducer';
 
 export interface ITodo {
   id: number;
