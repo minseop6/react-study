@@ -26,5 +26,8 @@
   &.complete {
     text-decoration: line-through;
     color: #b9bbc7;
+    .close {
+      color: #000000;
+    }
   }
 }

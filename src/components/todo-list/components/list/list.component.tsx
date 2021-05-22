@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '@material-ui/core/Icon';
 import { useDispatch } from 'react-redux';
-import { updateItem } from '@/reducers/todo.reducer';
+import { updateItem, deleteItem } from '@/reducers/todo.reducer';
 import './list.component.scss';
 import { ITodo } from '../../todo-list.interface';
 
@@ -14,6 +14,7 @@ export const List: React.FC<IListProps> = (props: IListProps) => {
 
   const dispatch = useDispatch();
   const updateTodo = (item: ITodo) => dispatch(updateItem(item));
+  const deleteTodo = (item: ITodo) => dispatch(deleteItem(item));
 
   const updateChecked = (item: ITodo) => {
     updateTodo({
@@ -26,7 +27,9 @@ export const List: React.FC<IListProps> = (props: IListProps) => {
     <div key={item.id} className={`item ${item.checked && 'complete'}`}>
       <input type="checkbox" className="checkbox" defaultChecked={item.checked} onClick={() => updateChecked(item)} />
       <span>{item.text}</span>
-      <Icon className="close">close</Icon>
+      <Icon className="close" onClick={() => deleteTodo(item)}>
+        close
+      </Icon>
     </div>
   ));
 
