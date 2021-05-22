@@ -35,12 +35,12 @@ export const todoReducer = (state = initialState, action: TodoActionType): ITodo
       return state;
     case UPDATE:
       index = state.todoList.findIndex((todo) => todo.id === action.payload.id);
-      index && state.todoList.splice(index, 1, action.payload);
+      state.todoList.splice(index, 1, action.payload);
       localStorage.setItem('todoList', JSON.stringify(state.todoList));
       return state;
     case DELETE:
       index = state.todoList.findIndex((todo) => todo.id === action.payload.id);
-      index && state.todoList.splice(index, 1);
+      state.todoList.splice(index, 1);
       localStorage.setItem('todoList', JSON.stringify(state.todoList));
       return state;
     default:
